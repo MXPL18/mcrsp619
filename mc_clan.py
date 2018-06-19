@@ -6,6 +6,7 @@ mc=Minecraft.create()
 stayed_time=0
 
 pos=mc.player.getTilePos()
+<<<<<<< HEAD
 print (pos)
 
 f = open("clanlist.csv","r")
@@ -19,6 +20,10 @@ for row in list_elements:
 roof_file_name = clan_data[1][2]
 
 f = open(roof_file_name,"r")
+=======
+
+f = open("roof.csv","r")
+>>>>>>> 0adc80597cc62da57516c7fa0ad9955c6666bee5
 data = f.read()
 list_elements = data.split("\n")
 
@@ -27,14 +32,23 @@ for row in list_elements:
     split_list = row.split(',')
     roof_data.append(split_list)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0adc80597cc62da57516c7fa0ad9955c6666bee5
 # Default display code
 class House:
     def __init__(self):
         self.type = "csv"
 # Solution code
 class House:
+<<<<<<< HEAD
     def __init__(self):
         self.roof_data = []
+=======
+    def __init__(self, roof_data):
+        self.roof_data = roof_data
+>>>>>>> 0adc80597cc62da57516c7fa0ad9955c6666bee5
     def buildRoof(self):
         for x in range(9):
             for z in range(9):
@@ -42,6 +56,7 @@ class House:
                     mc.setBlock(self.x0+8-x,self.y0+6,self.z0+8-z,1)
                 else:
                     mc.setBlock(self.x0+8-x,self.y0+6,self.z0+8-z,2)
+<<<<<<< HEAD
     def setRoof(self,csv_file_name):
         f = open(csv_file_name,"r")
         data = f.read()
@@ -51,6 +66,8 @@ class House:
             split_list = row.split(',')
             self.roof_data.append(split_list)
 
+=======
+>>>>>>> 0adc80597cc62da57516c7fa0ad9955c6666bee5
     def buildWindows(self):
         for x in range (7):
             for z in range (7):
@@ -117,6 +134,7 @@ class clan:
         for house in self.houses:
             house.buildAll()
 
+<<<<<<< HEAD
 clanPoss = [[0,0,0],[10,0,0],[10,0,10],[0,0,10]]
 first_house = House()
 first_house.setRoof(roof_file_name)
@@ -136,5 +154,14 @@ for house_number in range(12):
     house.setRoof(clan_data[house_number+1][2])
     my_clan.addHouse(house)
 
+=======
+first_house = House(roof_data)
+first_house.setHousePos(pos.x,pos.y,pos.z)
+second_house = House(roof_data)
+second_house.setHousePos(pos.x+10,pos.y+10,pos.z+10)
+my_clan = clan()
+my_clan.addHouse(first_house)
+my_clan.addHouse(second_house)
+>>>>>>> 0adc80597cc62da57516c7fa0ad9955c6666bee5
 my_clan.printHouses()
 my_clan.buildAlls()
